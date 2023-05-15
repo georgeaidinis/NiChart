@@ -18,7 +18,8 @@ from NiChart.core.model.datamodel import PandasModel
 import inspect
 
 import sys
-sys.path.append('/cbica/home/erusg/3_DEV/SPARE-Scores/05_niCHART/packaging/spare_scores')
+# sys.path.append('/cbica/home/erusg/3_DEV/SPARE-Scores/05_niCHART/packaging/spare_scores')
+sys.path.append('/home/george/Desktop/spare_score')
 import spare_scores as spare
 
 logger = iStagingLogger.get_logger(__name__)
@@ -34,7 +35,8 @@ class SpareView(QtWidgets.QWidget,BasePlugin):
         self.cmds = None
         
         self.modelname = None
-        self.modelname = '/home/guraylab/AIBIL/Github/TmpPackages/SpareScores/mdl/mdl_SPARE_AD_MUSE_single.pkl.gz'
+        # self.modelname = '/home/guraylab/AIBIL/Github/TmpPackages/SpareScores/mdl/mdl_SPARE_AD_MUSE_single.pkl.gz'
+        self.modelname = '/home/george/Desktop/spare_score/spare_scores/mdl/mdl_SPARE_AD_hMUSE_single.pkl.gz'
 
         ## Status bar of the main window
         ## Initialized by the mainwindow during loading of plugin
@@ -75,7 +77,8 @@ class SpareView(QtWidgets.QWidget,BasePlugin):
         
         # Load model
         with gzip.open(filename, 'rb') as f:
-            self.mdl = pickle.load(f)
+            self.mdl = pickle.load(f)[1]
+            
             
         # Get columns and check if they exist in dset
         mdlCol = self.mdl['predictors']
@@ -112,7 +115,8 @@ class SpareView(QtWidgets.QWidget,BasePlugin):
         #else:
             #directory = self.dataPathLast
         directory = QtCore.QDir().homePath()
-        directory = '/home/guraylab/AIBIL/Github/TmpPackages/SpareScores/mdl'
+        # directory = '/home/guraylab/AIBIL/Github/TmpPackages/SpareScores/mdl'
+        directory = '/home/george/Desktop/spare_score/spare_scores/mdl'
 
         filename = QtWidgets.QFileDialog.getOpenFileName(None,
             caption = 'Open model file',
@@ -198,3 +202,5 @@ class SpareView(QtWidgets.QWidget,BasePlugin):
             ### Update selection, sorting and drop duplicates panels
             #self.UpdatePanels(catNames, colNames)
 
+def main():
+    pass

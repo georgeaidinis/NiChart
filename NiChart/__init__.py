@@ -16,6 +16,9 @@ def main():
     parser.add_argument('--data_file', type=str, help='Data file containing data frame. Users can use --data_file multiple times to load additional data files', default=None, required=False, action='append')
     parser.add_argument('--dict_file', type=str, help='Dict file containing data dictionary. Users can use --data_dict multiple times to load additional data dictionaries', default=None, required=False, action='append')
     parser.add_argument("-nogui", action="store_true", help="Launch application in CLI mode to do data processing without any visualization or graphical user interface.")
+    
+    parser.add_argument('--harmonization_model_file', type=str, help='', default=None, required=False, action='append')
+    parser.add_argument('--SPARE_model_file', type=str, help='', action='append')
 
     args = parser.parse_args(sys.argv[1:])
 
@@ -23,7 +26,6 @@ def main():
     dict_files = args.dict_file
     noGUI = args.nogui
 
-    print('AAA')
     print(os.path.dirname(__file__))
 
     if(noGUI):

@@ -1,8 +1,8 @@
 import pytest
 import os
 import pandas as pd
-from NiChart.plugins.loadsave.dataio import DataIO
-from NiChart.plugins.spareplugin.spares import SPARE
+from NiChart.core.dataio import DataIO
+import spare_scores
 from NiChart.core.model.datamodel import DataModel
 
 #This file contains tests for spares.py
@@ -26,3 +26,5 @@ from NiChart.core.model.datamodel import DataModel
 #    dio.SavePickleFile(datamodel.data,outputfile))
 
 
+def test_SPARE():
+    pass

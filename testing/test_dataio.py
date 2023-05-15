@@ -1,7 +1,7 @@
 import pytest
 import os
 import pandas as pd
-from NiChart.plugins.loadsave.dataio import DataIO
+from NiChart.core.dataio import DataIO
 
 #This file contains tests for dataio.py
 
